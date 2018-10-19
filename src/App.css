@@ -1,0 +1,33 @@
+html, body, #root, .App{
+  height: 100%;
+  width: 100%;
+}
+
+.App{
+      /* The image used */
+    background-image: url('./img/img2.jpg');
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header{
+  color: white;
+  cursor: pointer;
+}
+.header:hover{
+color: blue;
+}
+
+.Main{
+  text-align: center;
+  color: white;
+  background-color: rgba(0,0,0,.6);
+  width: 80%; 
+  height: 85%;
+  margin: 0 auto;
+}
