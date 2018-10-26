@@ -1,8 +1,62 @@
 html, body, #root, .App{
-  height: 100%;
   width: 100%;
+  box-sizing: border-box;
 }
 
+.zero{
+  grid-area: zero;
+}
+.period{
+  grid-area: period; 
+}
+.equal{
+  grid-area: equal;
+}
+.one{
+  grid-area: one;
+}
+.two{
+  grid-area: two;
+}
+.three{
+  grid-area: three;
+}
+.four{
+  grid-area: four;
+}
+.five{
+  grid-area: five;
+}
+.six{
+  grid-area: six;
+}
+.seven{
+  grid-area: seven;
+}
+.eight{
+  grid-area: eight;
+}
+.nine{
+  grid-area: nine;
+}
+.divide{
+  grid-area: divide;
+}
+.minus{
+  grid-area: minus;
+}
+.multiply{
+  grid-area: multiply;
+}
+.plus{
+  grid-area: plus;
+}
+.clear{
+  grid-area: clear;
+}
+.negative{
+  grid-area: negative;
+}
 .App{
       /* The image used */
     background-image: url('./img/img2.jpg');
@@ -17,17 +71,61 @@ html, body, #root, .App{
 
 .header{
   color: white;
-  cursor: pointer;
-}
-.header:hover{
-color: blue;
 }
 
 .Main{
   text-align: center;
   color: white;
-  background-color: rgba(0,0,0,.6);
+  padding-top: 10px;
+  background-color: rgba(0,0,0,.5);
   width: 80%; 
-  height: 85%;
+  height: 89%;
   margin: 0 auto;
 }
+
+.ToDoList{
+  text-align: center;
+}
+.Calculator{
+  min-height: 85.5vh;
+  color:white;
+  margin-top: 30px;
+  height: auto;
+  text-align: center;
+
+}
+.CalcButtons{
+  margin: 30px auto;
+  height: 400px;
+  width: 400px;
+  display: grid;
+  grid-gap: .3em;
+  grid-template-areas:
+  "negative multiply minus divide"
+  "seven eight nine plus"
+  "four five six plus"
+  "one two three equal"
+  "zero zero period equal"
+  "clear clear clear equal";
+}
+
+.Main ul{
+  text-align: center;
+  list-style-type: none;
+  padding: 0;
+}
+.Main li{
+  padding: 15px;
+}
+.header li{
+  padding:0 5px;
+}
+@media only screen and (max-width: 1080px){
+  .profile{
+    display: none;
+  }
+  .text{
+    font-size: 13px !important;
+  }
+}
+

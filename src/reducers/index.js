@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux';
 
-const Click =(state = {}, action)=>{
+const books = (state = [], action)=>{
+  if(action.type === 'LOADEDBOOKS'){
+    return state = action.payload
+  }else{
   return state
+  }
 }
 
 const rootReducer = combineReducers({
- Click
+ books
 })
 
 export default rootReducer

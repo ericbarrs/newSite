@@ -2,30 +2,31 @@ import React from 'react';
 
 import {
   Navbar,
-  NavLink,
   Nav,
-  NavItem
+  NavLink,
+  NavItem,
+  ButtonDropdown, 
+  DropdownToggle, 
+  DropdownMenu, 
+  DropdownItem
 } from 'reactstrap';
 import {Link} from 'react-router-dom'
 
 export default class Header extends React.Component {
-
   state = {
-    isOpen: false,
-    x: true
+    x: true,
+    dropdownOpen: false
   }
-
-  isClicked(e){
-    this.setState({x: this.state.x === true ? false:true })
-    console.log(this.state.x)
-    return this.props.isClicked(this.state.x)
+  toggle=()=>{
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
   }
-
   render(){
     return(
-      <div>
+      <div className='header'>
         <Navbar color="dark" expand="md">
-          <h1 className="header" onClick={(e)=>{this.isClicked(e)}} style={{ padding:'8px'}}>Eric Barrs</h1>
+          <h1 style={{ padding:'8px'}}>Eric Barrs</h1>
             <Nav className="ml-auto">
             <NavItem>
               <Link style={{color: 'rgba(255,255,255,.9)', padding: '8px', display: "block" }} to="/" >Home</Link>
@@ -34,8 +35,19 @@ export default class Header extends React.Component {
               <Link style={{ color: 'rgba(255,255,255,.9)', padding:'8px', display:"block"}}to="/aboutme">About Me</Link>
               </NavItem>
               <NavItem>
-              <NavLink style={{ color: 'rgba(255,255,255,.9)', padding:'8px',display:'block'}} href="http://www.github.com/ericbarrs">GitHub</NavLink>
+              <NavLink href="http://www.github.com/ericbarrs" style={{ color: 'rgba(255,255,255,.9)', padding:'8px',display:'block'}} target="_blank">GitHub</NavLink>
               </NavItem>
+              <ButtonDropdown direction="left" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                  <DropdownToggle  caret size="sm" color="primary">
+                    Examples
+                  </DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem ><Link to="/calculator">Calculator</Link></DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem ><Link to="/bestbooks">Best Books</Link></DropdownItem>
+                    <DropdownItem divider />
+                  </DropdownMenu>
+                </ButtonDropdown>
             </Nav>
         </Navbar>
       </div>
